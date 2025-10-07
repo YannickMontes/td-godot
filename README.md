@@ -39,6 +39,7 @@ Quatre grands objectifs : **ajouter des ennemis**, **implémenter une attaque**,
 ### 2.1 Spawn d’un VFX
 
 * À chaque clic de souris (ou tap écran), un **VFX** apparaît à la position du clic sur le sol.
+* Vous pouvez utiliser la scène `vfx_impact` présente dans le projet.
 
 ### 2.2 Détruire les ennemis avec le VFX
 
