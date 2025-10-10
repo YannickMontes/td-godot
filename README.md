@@ -122,10 +122,12 @@ get_tree().reload_current_scene()
 * Si un ennemi entre dans le VFX → il est détruit.
 * Incrémentez un compteur d’ennemis tués.
 
-✅ **Checkpoint :** Quand vous cliquez, un effet apparaît au sol.
+*Hint: Le type de la scène `vfx_impact.tscn` est `Area3D`. Ce type permet d'implémenter des signaux lorsqu'un objet rentre dans l'aire en question.*
 
-* Si un ennemi touche cet effet, il disparaît.
-* Le compteur d’ennemis tués s’incrémente correctement.
+```gdscript
+func _on_body_entered(body):
+		
+```
 
 ---
 
@@ -135,6 +137,12 @@ get_tree().reload_current_scene()
 
 * Ajoutez un **Label** affichant le nombre d’ennemis éliminés.
 * Mettez-le à jour à chaque destruction.
+
+*Hint: Il est possible d'ajouter un script "global", qui sera load au démarage d'une scène, et accessible depuis n'importe où juste via son nom.
+Pour celà, allez dans Project Settings -> Global -> Autoload
+Ajoutez votre script ici. 
+Pensez à nommer votre script via `class_name VotreNomDeScript` en première ligne de votre script.
+On pourrait imaginer un `GameManager.gd` qui regroupe les informations telles que le scores, accessible depuis n'importe ou.*
 
 ### 3.2 Écran Game Over
 
@@ -149,12 +157,6 @@ get_tree().reload_current_scene()
 * Boutons : *Play* (charge la scène principale), *Quit*.
 * Le jeu démarre désormais sur ce menu.
 
-✅ **Checkpoint :**
-
-* Le score s’affiche et augmente correctement.
-* En cas de Game Over, un écran apparaît avec les bons boutons.
-* Le jeu démarre depuis un menu d’accueil.
-
 ---
 
 ## 4. Adaptation mobile
@@ -162,7 +164,8 @@ get_tree().reload_current_scene()
 ### 4.1 Déplacement via joystick
 
 * Ajoutez un **joystick UI**.
-* Reliez-le au script du Player pour remplacer les touches clavier.
+* Vous pouvez regarder dans l'AssetLib, un joystick déjà fait par la communauté.
+* Faites en sorte que ce joystick bouge le player également.
 
 ### 4.2 Tap = clic
 
@@ -173,16 +176,10 @@ get_tree().reload_current_scene()
 * Configurez l’export Android.
 * Générez une APK et testez-la sur un smartphone.
 
-✅ **Checkpoint :**
-
-* Sur mobile, le joystick déplace correctement le joueur.
-* Un tap sur l’écran fait apparaître le VFX et permet de tuer les ennemis.
-* Le jeu est jouable sur un smartphone via une APK.
-
 ---
 
 ## Bonus possibles
 
 * Ajouter une animation au VFX (grossir puis disparaître).
 * Sons (apparition ennemi, destruction, clic).
-* Faire apparaître les ennemis de plus en plus vite.
+* Faire apparaître les ennemis de plus en plus vite
