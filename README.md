@@ -159,6 +159,41 @@ On pourrait imaginer un `GameManager.gd` qui regroupe les informations telles qu
 
 ---
 
+## 4. Modèles 3D
+
+Nous allons utiliser des modèles 3D avec des animations, pour que notre jeu ressemble un peu plus à quelque-chose. 
+Pour celà, nous allons utiliser le modèle 3D de Kenny Asset, disponible ![ici](https://kenney.nl/assets/animated-characters-2).
+
+### 4.1 Ajouter les assets au projet
+
+* Téléchargez les assets ci-dessus. Extraire le contenu.
+* Créez un dossier spécifique **"KennyAssets"**, dans lequel vous pouvez drag & drop les dossiers **Animations**, **Model** et **Skins**.
+* Créez les matériaux que vous souhaitez grâces aux textures présentes dans le dossier **Skins**.
+* Créez des scènes enfant de **characterMedium.fbx** pour chaque matériau que vous allez vouloir utiliser, et override le matériau de base.
+* Pensez-également à extraire les animations des .fbx sous forme de librairies pour pouvoir vous en servir (cf. le diapo du cours). 
+
+### 4.2 Modifier le player 
+
+* Dans la scène player, rajouter la scène du player créée plus haut.
+* Ajouter un AnimationPlayer avec les animations en enfant de ce noeud
+* Ajouter également un AnimationTree, avec une StateMachine, et le régler correctement pour les animations. Ajouter 2 variables aux conditions de la StateMachine, **idle** et **running**
+* L'état Idle est le début de notre StateMachien, et l'état Running se lance uniquement si running est vrai
+
+### 4.3 Déclencher les animations au bon moment
+
+* Dès que le player bouge, on peut aller modifier les paramètres de notre state machine comme suit
+
+```gdscript
+var animation_tree: AnimationTree
+
+func change_parameter():
+	animation_tree.set("parameters/conditions/idle", false)
+
+```
+* Lancer les animations correctement en fonction des inputs du joueur pour le déplacement.
+
+---
+
 ## 4. Adaptation mobile
 
 ### 4.1 Déplacement via joystick
