@@ -177,7 +177,7 @@ Pour celà, nous allons utiliser le modèle 3D de Kenny Asset, disponible ![ici]
 * Dans la scène player, rajouter la scène du player créée plus haut.
 * Ajouter un AnimationPlayer avec les animations en enfant de ce noeud
 * Ajouter également un AnimationTree, avec une StateMachine, et le régler correctement pour les animations. Ajouter 2 variables aux conditions de la StateMachine, **idle** et **running**
-* L'état Idle est le début de notre StateMachien, et l'état Running se lance uniquement si running est vrai
+* L'état Idle est le début de notre StateMachine, et l'état Running se lance uniquement si running est vrai
 
 ### 4.3 Déclencher les animations au bon moment
 
