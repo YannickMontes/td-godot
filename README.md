@@ -150,12 +150,23 @@ On pourrait imaginer un `GameManager.gd` qui regroupe les informations telles qu
 
   * Un bouton *Restart* (relance la scène).
   * Un bouton *Quit* (ferme le jeu).
+ 
+```gdscript
+get_tree().reload_current_scene() #recharge la scène actuelle
+get_tree().quit() #quitte le jeu
+```
 
 ### 3.3 Menu d’accueil
 
 * Créez une scène `MainMenu`.
 * Boutons : *Play* (charge la scène principale), *Quit*.
 * Le jeu démarre désormais sur ce menu.
+
+```gdscript
+@onready var start_level: PackedScene = preload("res://Scenes/level.tscn")
+#...
+get_tree().change_scene_to_packed(start_level)
+```
 
 ---
 
@@ -194,19 +205,19 @@ func change_parameter():
 
 ---
 
-## 4. Adaptation mobile
+## 5. Adaptation mobile
 
-### 4.1 Déplacement via joystick
+### 5.1 Déplacement via joystick
 
 * Ajoutez un **joystick UI**.
 * Vous pouvez regarder dans l'AssetLib, un joystick déjà fait par la communauté.
 * Faites en sorte que ce joystick bouge le player également.
 
-### 4.2 Tap = clic
+### 5.2 Tap = clic
 
 * Vérifiez qu’un **tap** sur l’écran déclenche bien une attaque comme un clic.
 
-### 4.3 Export APK
+### 5.3 Export APK
 
 * Configurez l’export Android.
 * Générez une APK et testez-la sur un smartphone.
